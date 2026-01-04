@@ -8,6 +8,8 @@
     "dev-admin": "nx dev @SMS/Admin -- -p 3001",
     "dev:backend": "nx serve @SMS/Backend",
     "dev:admin": "nx serve @SMS/Admin",
+    "build:admin": "nx build @SMS/Admin",
+
     "start": "nx run-many -t serve -p @SMS/Frontend,@SMS/Backend --parallel=2",
     "prepare": "husky"
   },
