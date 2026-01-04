@@ -1,0 +1,18 @@
+import type { Config } from 'jest';
+import nextJest from 'next/jest.js';
+
+const createJestConfig = nextJest({
+  dir: './',
+});
+
+const config: Config = {
+  displayName: '@SMS/Frontend',
+  transform: {
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  coverageDirectory: '../../coverage/apps/Frontend',
+  testEnvironment: 'jsdom',
+};
+
+export default createJestConfig(config);

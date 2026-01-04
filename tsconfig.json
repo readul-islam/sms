@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/Frontend"
+    },
+    {
+      "path": "./apps/Backend"
+    },
+    {
+      "path": "./apps/Admin"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/types"
+    }
+  ]
+}

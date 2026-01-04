@@ -1,0 +1,13 @@
+{
+  "name": "@SMS/Frontend",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@SMS/styles": "workspace:*",
+    "@SMS/ui": "workspace:*",
+    "flatpickr": "^4.6.13",
+    "next": "~15.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}
