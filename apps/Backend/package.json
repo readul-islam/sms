@@ -5,20 +5,22 @@
   "nx": {
     "targets": {
       "build": {
-        "executor": "nx:run-commands",
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
         "options": {
-          "command": "webpack-cli build",
-          "args": [
-            "--node-env=production"
+          "outputPath": "dist/apps/Backend",
+          "main": "apps/Backend/src/main.ts",
+          "tsConfig": "apps/Backend/tsconfig.app.json",
+          "assets": [
+            "apps/Backend/src/assets"
           ],
-          "cwd": "apps/Backend"
+          "generatePackageJson": true
         },
         "configurations": {
-          "development": {
-            "args": [
-              "--node-env=development"
-            ]
-          }
+          "development": {},
+          "production": {}
         }
       },
       "prune-lockfile": {
@@ -56,7 +58,6 @@
         "executor": "nx:noop"
       },
       "serve": {
-        "continuous": true,
         "executor": "@nx/js:node",
         "defaultConfiguration": "development",
         "dependsOn": [
@@ -64,8 +65,7 @@
         ],
         "options": {
           "buildTarget": "@SMS/Backend:build",
-          "runBuildTargetDependencies": false,
-          "inspect": false
+          "watch": true
         },
         "configurations": {
           "development": {
@@ -89,14 +89,12 @@
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.0",
     "@nestjs/jwt": "^11.0.0",
-    "@nestjs/mongoose": "^11.0.3",
-    "@nestjs/passport": "^11.0.5",
+    "@nestjs/mongoose": "^11.0.4",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/platform-socket.io": "^11.1.6",
     "@nestjs/swagger": "^11.2.0",
     "@nestjs/throttler": "^6.4.0",
     "@nestjs/websockets": "^11.1.6",
-    "@prisma/client": "^6.14.0",
     "@types/bcrypt": "^6.0.0",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
@@ -105,18 +103,12 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "helmet": "^8.1.0",
-    "mongoose": "^8.17.2",
-    "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-jwt": "^4.0.1",
+    "mongoose": "^9.1.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/passport-google-oauth20": "^2.0.16",
-    "@types/passport-jwt": "^4.0.1",
-    "prisma": "^6.14.0"
+    "@types/bcryptjs": "^2.4.6"
   }
 }
