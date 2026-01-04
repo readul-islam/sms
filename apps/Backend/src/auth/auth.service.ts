@@ -13,9 +13,11 @@ export class AuthService {
     const salt = 10;
     const hashedPassword = await bcrypt.hash(registerDto.password, salt);
 
-    return this.userService.createUser({
+    const user = await  this.userService.createUser({
       ...registerDto,
       password: hashedPassword,
     });
+
+    return user;
   }
 }
