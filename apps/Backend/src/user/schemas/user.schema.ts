@@ -40,7 +40,7 @@ export class User {
     required: true,
     select: false, // 🔐 hide password by default
   })
-  passwordHash!: string;
+  password!: string;
 
   @Prop({
     type: String,
